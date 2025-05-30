@@ -1,12 +1,12 @@
 import React from "react";
 import { RegionSelectorSection } from "../components/RegionSelectorSection";
+import { Header } from "../components/layout/Header";
+import { Footer } from "../components/layout/Footer";
 
 const RegionSelectorTopPage: React.FC = () => {
   return (
-    <div>
-      <header>
-        <h1>街の輪</h1>
-      </header>
+    <div className="flex flex-col min-h-screen">
+      <Header />
 
       <main>
         <section className="m-1 p-6 bg-red-50 rounded-md shadow-sm">
@@ -18,10 +18,7 @@ const RegionSelectorTopPage: React.FC = () => {
         <RegionSelectorSection />
       </main>
 
-      <footer>
-        <p>&copy; {new Date().getFullYear()} 街の輪</p>
-        <p>このページは、トップページのサンプルです。</p>
-      </footer>
+      <Footer />
     </div>
   );
 };
