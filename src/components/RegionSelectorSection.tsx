@@ -36,7 +36,7 @@ export const RegionSelectorSection: React.FC = () => {
   }
 
   return (
-    <section className="m-1 p-6 bg-cyan-50 rounded-md shadow-sm">
+    <section className="m-1 p-6 bg-white rounded-md shadow-sm">
       <h2 className="text-xl font-bold text-center mb-4">地域選択セクション</h2>
       <p>
         API サーバなどから地域データを取得して表示し、<wbr />
@@ -52,11 +52,12 @@ export const RegionSelectorSection: React.FC = () => {
       </div>
 
       <hr className="my-6"/>
-      <ul>
+
+      <ul className="text-center">
         {regions.map((region) => (
           <li key={region.id}>
             <Link to={`/region/${region.id}`}
-                  className="underline text-blue-700 hover:text-blue-900"
+                  className="inline-block bg-orange-400 hover:bg-orange-500 active:bg-orange-600 text-white font-bold py-3 px-8 rounded-lg shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-75 transition-all duration-150 ease-in-out transform hover:-translate-y-0.5 active:translate-y-0"
             >
               {region.displayName} のイベント一覧を見る
             </Link>
