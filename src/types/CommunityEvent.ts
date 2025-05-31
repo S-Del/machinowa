@@ -201,4 +201,5 @@ export type CommunityEvent = {
   readonly organizer: EventOrganizer;
   readonly capacity?: number;
   readonly imageUrls?: string[];
+  readonly isFeatured?: boolean;
 };

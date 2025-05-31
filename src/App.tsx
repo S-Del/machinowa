@@ -1,14 +1,12 @@
 import { Route, Routes } from "react-router-dom";
 import RegionSelectorTopPage from "./pages/RegionSelectorTopPage";
+import LocalEventListPage from "./pages/LocalEventListPage";
 
 const App = () => {
   return (
     <Routes>
       <Route path="/" element={<RegionSelectorTopPage />} />
-      <Route
-        path="/region/:regionId"
-        element={<div>地域ページに置き換え予定</div>}
-      />
+      <Route path="/events/:regionId" element={<LocalEventListPage />} />
     </Routes>
   );
 };

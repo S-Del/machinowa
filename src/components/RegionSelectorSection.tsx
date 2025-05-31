@@ -56,7 +56,7 @@ export const RegionSelectorSection: React.FC = () => {
       <ul className="text-center">
         {regions.map((region) => (
           <li key={region.id}>
-            <Link to={`/region/${region.id}`}
+            <Link to={`/events/${region.id}`}
                   className="inline-block bg-orange-400 hover:bg-orange-500 active:bg-orange-600 text-white font-bold py-3 px-8 rounded-lg shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-75 transition-all duration-150 ease-in-out transform hover:-translate-y-0.5 active:translate-y-0"
             >
               {region.displayName} のイベント一覧を見る
