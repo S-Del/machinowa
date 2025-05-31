@@ -38,9 +38,19 @@ export const RegionSelectorSection: React.FC = () => {
   return (
     <section className="m-1 p-6 bg-cyan-50 rounded-md shadow-sm">
       <h2 className="text-xl font-bold text-center mb-4">地域選択セクション</h2>
-      <p>ここでは API サーバなどから取得した「地域」一覧を表示する。</p>
-      <p>地図形式の図の中から選択したり、表の中から選択する想定。</p>
-      <p>現在はサンプルデータを使用。</p>
+      <p>
+        API サーバなどから地域データを取得して表示し、<wbr />
+        ユーザーは地図形式の図の中から選択したり、表の中から選択できる想定。<br />
+        現在は 1 件だけの地域モックデータを使用中。<br />
+      </p>
+      <div className="text-xs">
+        <p>詳細は以下のソースコードを参照してください。 </p>
+        <ul className="list-disc list-inside">
+          <li>components/RegionSelectorSection.tsx</li>
+          <li>mocks/fakeFetchRegions.ts</li>
+        </ul>
+      </div>
+
       <hr className="my-6"/>
       <ul>
         {regions.map((region) => (

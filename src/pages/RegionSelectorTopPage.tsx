@@ -11,8 +11,8 @@ const RegionSelectorTopPage: React.FC = () => {
       <main className="grow">
         <section className="m-1 p-6 bg-red-50 rounded-md shadow-sm">
           <h2 className="text-xl font-bold text-center mb-4">注目行事表示セクション (全国)</h2>
-          <p> ここには全国各地の注目イベント等が表示されることを期待する。</p>
-          <p> カルーセルなどでイベント画像など。</p>
+          <p> ここには全国各地の注目イベント等が表示されることを想定。</p>
+          <p> イベント画像をカルーセルで表示する等。</p>
         </section>
 
         <RegionSelectorSection />
