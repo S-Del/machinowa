@@ -6,8 +6,8 @@ import type { RegionInfo } from "../types/RegionInfo";
 
 export const RegionSelectorSection: React.FC = () => {
   const [regions, setRegions] = useState<RegionInfo[]>([]);
-//const [isLoading, setIsLoading] = useState<boolean>(false];
-//const [error, setError] = useState<string | null>(null);
+  //const [isLoading, setIsLoading] = useState<boolean>(false];
+  //const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     (async () => {
@@ -39,9 +39,12 @@ export const RegionSelectorSection: React.FC = () => {
     <section className="m-1 p-6 bg-white rounded-md shadow-sm">
       <h2 className="text-xl font-bold text-center mb-4">地域選択セクション</h2>
       <p>
-        API サーバなどから地域データを取得して表示し、<wbr />
-        ユーザーは地図形式の図の中から選択したり、表の中から選択できる想定。<br />
-        現在は 1 件だけの地域モックデータを使用中。<br />
+        API サーバなどから地域データを取得して表示し、
+        <wbr />
+        ユーザーは地図形式の図の中から選択したり、表の中から選択できる想定。
+        <br />
+        現在は 1 件だけの地域モックデータを使用中。
+        <br />
       </p>
       <div className="text-xs">
         <p>詳細は以下のソースコードを参照してください。 </p>
@@ -51,35 +54,36 @@ export const RegionSelectorSection: React.FC = () => {
         </ul>
       </div>
 
-      <hr className="my-6"/>
+      <hr className="my-6" />
 
       <ul className="text-center">
         {regions.map((region) => (
           <li key={region.id}>
-            <Link to={`/events/${region.id}`}
-                  className={[
-                    "inline-block",
-                    "bg-orange-400",
-                    "text-white",
-                    "font-bold",
-                    "py-3",
-                    "px-8",
-                    "rounded-lg",
-                    "shadow-md",
-                    "hover:shadow-lg",
-                    "hover:bg-orange-500",
-                    "hover:-translate-y-0.5",
-                    "focus:outline-none",
-                    "focus:ring-2",
-                    "focus:ring-green-500",
-                    "focus:ring-opacity-75",
-                    "active:translate-y-0",
-                    "active:bg-orange-500",
-                    "transition-all",
-                    "duration-150",
-                    "ease-in-out",
-                    "transform"
-                  ].join(" ")}
+            <Link
+              to={`/events/${region.id}`}
+              className={[
+                "inline-block",
+                "bg-orange-400",
+                "text-white",
+                "font-bold",
+                "py-3",
+                "px-8",
+                "rounded-lg",
+                "shadow-md",
+                "hover:shadow-lg",
+                "hover:bg-orange-500",
+                "hover:-translate-y-0.5",
+                "focus:outline-none",
+                "focus:ring-2",
+                "focus:ring-green-500",
+                "focus:ring-opacity-75",
+                "active:translate-y-0",
+                "active:bg-orange-500",
+                "transition-all",
+                "duration-150",
+                "ease-in-out",
+                "transform",
+              ].join(" ")}
             >
               {region.displayName} のイベント一覧を見る
             </Link>

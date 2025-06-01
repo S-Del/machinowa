@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { useParams, Link } from "react-router-dom";
 
-import { Header } from '../components/layout/Header';
-import { Footer } from '../components/layout/Footer';
-import type { CommunityEvent } from '../types/CommunityEvent';
-import { fakeFetchEventById } from '../mocks/fakeFetchEvents';
-
+import { Header } from "../components/layout/Header";
+import { Footer } from "../components/layout/Footer";
+import type { CommunityEvent } from "../types/CommunityEvent";
+import { fakeFetchEventById } from "../mocks/fakeFetchEvents";
 
 const EventDetailPage: React.FC = () => {
   const { eventId } = useParams<{ eventId: string }>();
@@ -14,7 +13,7 @@ const EventDetailPage: React.FC = () => {
 
   useEffect(() => {
     if (!eventId) {
-      console.error('Event ID is undefined');
+      console.error("Event ID is undefined");
       setEvent(null);
       setIsLoading(false);
       return;
@@ -37,7 +36,8 @@ const EventDetailPage: React.FC = () => {
   }, [eventId]);
 
   // ローディング中の表示
-  if (isLoading || event === undefined) { // eventがundefinedの間もローディングとみなす
+  if (isLoading || event === undefined) {
+    // eventがundefinedの間もローディングとみなす
     return (
       <div className="flex flex-col min-h-screen">
         <Header />
@@ -50,7 +50,8 @@ const EventDetailPage: React.FC = () => {
   }
 
   // イベントが見つからない場合の表示
-  if (!event) { // event が null の場合
+  if (!event) {
+    // event が null の場合
     return (
       <div className="flex flex-col min-h-screen">
         <Header />
@@ -71,11 +72,12 @@ const EventDetailPage: React.FC = () => {
   return (
     <div className="flex flex-col min-h-screen bg-gray-100">
       <Header /> {/* 1. ヘッダー */}
-
       <main className="grow container mx-auto px-4 py-8">
         {/* 2. イベント画像（あれば） */}
         {event.imageUrls && event.imageUrls.length > 0 && (
-          <div className="mb-6 max-h-[70vh] overflow-hidden shadow-xl"> {/* 高さを少し大きく */}
+          <div className="mb-6 max-h-[70vh] overflow-hidden shadow-xl">
+            {" "}
+            {/* 高さを少し大きく */}
             <img
               src={event.imageUrls[0]}
               alt={`イベント「${event.title}」のメイン画像`}
@@ -98,37 +100,32 @@ const EventDetailPage: React.FC = () => {
 
           <section className="mb-6">
             <h2 className="text-xl font-semibold text-gray-700 mb-2 border-b pb-1">開催日時</h2>
-            <p className="text-gray-700">{
-              new Date(
-                event.schedule.startDateTime
-              ).toLocaleString(
-                'ja-JP', { dateStyle: 'long', timeStyle: 'short' }
-              )
-            } {
-              event.schedule.endDateTime
-              && ` ～ ${
-                new Date(event.schedule.endDateTime).toLocaleString(
-                  'ja-JP', { dateStyle: 'long', timeStyle: 'short' }
-              )}`
-            } </p>
-            {
-              event.schedule.notes &&
+            <p className="text-gray-700">
+              {new Date(event.schedule.startDateTime).toLocaleString("ja-JP", {
+                dateStyle: "long",
+                timeStyle: "short",
+              })}{" "}
+              {event.schedule.endDateTime &&
+                ` ～ ${new Date(event.schedule.endDateTime).toLocaleString("ja-JP", {
+                  dateStyle: "long",
+                  timeStyle: "short",
+                })}`}{" "}
+            </p>
+            {event.schedule.notes && (
               <p className="text-sm text-gray-500 mt-1">{event.schedule.notes}</p>
-            }
+            )}
           </section>
 
           {event.location && (
             <section className="mb-6">
               <h2 className="text-xl font-semibold text-gray-700 mb-2 border-b pb-1">開催場所</h2>
-              {
-                event.location.venueName
-                && <p className="text-lg font-medium text-gray-700">{event.location.venueName}</p>
-              }
+              {event.location.venueName && (
+                <p className="text-lg font-medium text-gray-700">{event.location.venueName}</p>
+              )}
               <p className="text-gray-700">{event.location.address}</p>
-              {
-                event.location.accessNotes
-                && <p className="text-sm text-gray-500 mt-1">{event.location.accessNotes}</p>
-              }
+              {event.location.accessNotes && (
+                <p className="text-sm text-gray-500 mt-1">{event.location.accessNotes}</p>
+              )}
               <a
                 href={`https://maps.google.com/?q=埼玉県春日部市中央１丁目?q=${encodeURIComponent(event.location.address)}`}
                 target="_blank"
@@ -144,26 +141,30 @@ const EventDetailPage: React.FC = () => {
             <h2 className="text-xl font-semibold text-gray-700 mb-2 border-b pb-1">参加料金</h2>
             <p className="text-gray-800 text-lg">{event.fee.description}</p>
             {event.fee.isFreeToJoin && (
-              <span className={[
-                "inline-block",
-                "bg-green-100",
-                "text-green-700",
-                "text-xs",
-                "font-semibold",
-                "mt-1",
-                "px-2",
-                "py-0.5",
-                "rounded"
-              ].join(" ")}>
+              <span
+                className={[
+                  "inline-block",
+                  "bg-green-100",
+                  "text-green-700",
+                  "text-xs",
+                  "font-semibold",
+                  "mt-1",
+                  "px-2",
+                  "py-0.5",
+                  "rounded",
+                ].join(" ")}
+              >
                 一部または全て無料
               </span>
             )}
           </section>
 
           <section className="mb-6">
-            <h2 className="text-xl font-semibold text-gray-700 mb-2 border-b pb-1">予約について</h2>
+            <h2 className="text-xl font-semibold text-gray-700 mb-2 border-b pb-1">
+              予約について
+            </h2>
             <p className="text-gray-800 text-lg">
-              {event.requiresReservation ? '要予約' : '予約不要'}
+              {event.requiresReservation ? "要予約" : "予約不要"}
             </p>
           </section>
 
@@ -177,28 +178,31 @@ const EventDetailPage: React.FC = () => {
           <section className="mb-6">
             <h2 className="text-xl font-semibold text-gray-700 mb-2 border-b pb-1">その他情報</h2>
             <div className="text-sm text-gray-600 space-y-1">
-              <p><strong>カテゴリ:</strong> {event.type.mainCategory}</p>
+              <p>
+                <strong>カテゴリ:</strong> {event.type.mainCategory}
+              </p>
               {event.type.tags.length > 0 && (
-                <p><strong>タグ:</strong> {event.type.tags.join('、 ')}</p>
+                <p>
+                  <strong>タグ:</strong> {event.type.tags.join("、 ")}
+                </p>
               )}
               <p>
                 <strong>開催形式:</strong> {event.type.format}
-                {
-                  event.type.format !== 'オンライン'
-                                    && event.type.physicalSetting
-                                    && ` (${event.type.physicalSetting})`
-                }
+                {event.type.format !== "オンライン" &&
+                  event.type.physicalSetting &&
+                  ` (${event.type.physicalSetting})`}
               </p>
             </div>
-            {event.type.format !== 'オフライン' && event.type.onlineUrl && (
+            {event.type.format !== "オフライン" && event.type.onlineUrl && (
               <section className="mb-6">
                 <h2 className="text-xl font-semibold text-gray-700 mb-2">オンライン参加</h2>
-                <a href={event.type.onlineUrl.url}
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   className="text-blue-600 hover:underline font-medium"
+                <a
+                  href={event.type.onlineUrl.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:underline font-medium"
                 >
-                  {event.type.onlineUrl.label || '参加用リンク'}
+                  {event.type.onlineUrl.label || "参加用リンク"}
                 </a>
               </section>
             )}
@@ -221,8 +225,9 @@ const EventDetailPage: React.FC = () => {
               {event.organizer.email && (
                 <p className="text-sm text-slate-600">
                   <span className="font-medium">メール:</span>
-                  <a href={`mailto:${event.organizer.email}`}
-                     className="text-blue-600 hover:underline ml-1"
+                  <a
+                    href={`mailto:${event.organizer.email}`}
+                    className="text-blue-600 hover:underline ml-1"
                   >
                     {event.organizer.email}
                   </a>
@@ -239,10 +244,11 @@ const EventDetailPage: React.FC = () => {
                   <ul className="list-disc list-inside ml-4 text-sm space-y-1">
                     {event.organizer.urls.map((link, index) => (
                       <li key={index}>
-                        <a href={link.url}
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           className="text-blue-600 hover:underline"
+                        <a
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-600 hover:underline"
                         >
                           {link.label || link.url}
                         </a>
@@ -261,11 +267,9 @@ const EventDetailPage: React.FC = () => {
           </div>
         </article>
       </main>
-
       <Footer /> {/* 4. フッター */}
     </div>
   );
 };
-
 
 export default EventDetailPage;

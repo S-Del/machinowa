@@ -19,18 +19,18 @@ export default tseslint.config(
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
-      "react-refresh/only-export-components": [
+      "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
+      "max-len": [
         "warn",
-        { allowConstantExport: true },
+        {
+          code: 99,
+          ignoreUrls: true,
+          ignoreComments: true,
+          ignoreRegExpLiterals: true,
+          ignoreStrings: false,
+          ignoreTemplateLiterals: false,
+        },
       ],
-      "max-len": ["warn", {
-        code: 99,
-        ignoreUrls: true,
-        ignoreComments: true,
-        ignoreRegExpLiterals: true,
-        ignoreStrings: false,
-        ignoreTemplateLiterals: false
-      }]
     },
   }
 );
