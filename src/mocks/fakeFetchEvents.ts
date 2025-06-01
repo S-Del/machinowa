@@ -152,6 +152,209 @@ const mockEvents: CommunityEvent[] = [
     imageUrls: ["/images/online-cooking.jpg"],
     isFeatured: false,
   },
+  {
+    id: 'event-005-bouldering-tournament',
+    title: 'サンプル市ボルダリングコンペ2025 - 熱くなれ！',
+    description: '初心者から上級者まで楽しめるボルダリング大会を開催！豪華賞品も用意しています。自分の限界に挑戦し、仲間と切磋琢磨しよう。観戦無料！',
+    type: {
+      mainCategory: 'スポーツ・健康',
+      tags: ['経験者向け', '初心者歓迎', '駐車場あり'], // 参加クラス分けがあるイメージ
+      format: 'オフライン',
+      physicalSetting: '屋内',
+    },
+    requiresReservation: true, // 参加には予約必須
+    fee: {
+      isFreeToJoin: false,
+      description: '参加費: 3,000円 (保険料込、観戦は無料)',
+    },
+    location: {
+      address: '埼玉県サンプル市クライム壁町10-1 サンプルクライミングジム',
+      venueName: 'サンプルクライミングジム「ロックフェイス」',
+      accessNotes: 'サンプルクライム駅から徒歩8分。専用駐車場30台。',
+    },
+    schedule: {
+      startDateTime: '2025-07-06T09:00:00+09:00',
+      endDateTime: '2025-07-06T17:00:00+09:00',
+      notes: 'クラス別に競技時間が異なります。詳細はウェブサイトをご確認ください。動きやすい服装でお越しください。',
+    },
+    organizer: {
+      name: 'サンプル市クライミング連盟',
+      email: 'climbing@sample-city-sports.example.com',
+      profileText: 'ボルダリングの普及と競技力向上を目指して活動しています。',
+      urls: [{ label: '大会特設サイト', url: 'https://sample-city-sports.example.com/bouldering2025' }],
+    },
+    capacity: 100, // 参加者定員
+    imageUrls: ['/images/bouldering.jpg'],
+    isFeatured: true, // 注目イベントにしてみましょう
+  },
+  {
+    id: 'event-006-river-cleanup',
+    title: '未来に残そう！サンプル川クリーンアップ大作戦',
+    description: '私たちの街を流れるサンプル川を、みんなで綺麗にしませんか？大人も子供も大歓迎！清掃後は軽食を用意しています。軍手、ゴミ袋はこちらで用意します。',
+    type: {
+      mainCategory: '地域活動・ボランティア',
+      tags: ['こども向け', '親子参加OK', '初心者歓迎' /* '誰でも歓迎'の代わり */, '雨天中止'],
+      format: 'オフライン',
+      physicalSetting: '屋外',
+    },
+    requiresReservation: false, // 飛び入り参加OKのイメージ
+    fee: {
+      isFreeToJoin: true,
+      description: '参加無料！動きやすく汚れてもよい服装でご参加ください。',
+    },
+    location: {
+      address: '埼玉県サンプル市リバーサイド サンプル川河川敷公園',
+      venueName: 'サンプル川河川敷公園 (中央橋下集合)',
+      accessNotes: 'サンプル駅から徒歩15分。公共交通機関をご利用ください。',
+    },
+    schedule: {
+      startDateTime: '2025-06-08T09:30:00+09:00',
+      endDateTime: '2025-06-08T11:30:00+09:00',
+      notes: '雨天の場合は翌週に順延します。順延の際は前日17時に市HPでお知らせします。帽子、飲み物を持参推奨。',
+    },
+    organizer: {
+      name: 'サンプル川を愛する会 & サンプル市環境課',
+      phone: '048-XXX-XXXX (市役所代表)',
+      profileText: 'サンプル川の環境保全と美化活動を行っている市民団体と市の共同プロジェクトです。',
+    },
+    // capacity は特に設定しないイメージ
+    imageUrls: ['/images/river.jpg'],
+    isFeatured: false,
+  },
+  {
+    id: 'event-007-card-game-tournament',
+    title: '第3回 サンプル市トレーディングカードゲーム大会',
+    description: '人気のトレーディングカードゲーム「ミスティック・デュエル」の公認大会！初心者から猛者まで、自慢のデッキで頂点を目指せ！上位入賞者には豪華賞品あり。',
+    type: {
+      mainCategory: '交流・ミートアップ', // または「その他」
+      tags: ['経験者向け', '初心者歓迎'], // トーナメントとは別にフリー対戦卓も用意するイメージ
+      format: 'オフライン',
+      physicalSetting: '屋内',
+    },
+    requiresReservation: true, // 事前エントリー制
+    fee: {
+      isFreeToJoin: false,
+      description: '参加費：1,000円 (参加賞あり)',
+    },
+    location: {
+      address: '埼玉県サンプル市駅前2-3-4 サンプル市民ホール',
+      venueName: 'サンプル市民ホール 3階 大会議室',
+      accessNotes: 'サンプル駅直結。会場内飲食可（ただし指定エリアのみ）。',
+    },
+    schedule: {
+      startDateTime: '2025-07-13T10:00:00+09:00', // 受付開始は9:30など
+      endDateTime: '2025-07-13T18:00:00+09:00',
+      notes: '大会レギュレーションは公式サイトをご確認ください。デッキ持参。中学生以下は保護者同伴推奨。',
+    },
+    organizer: {
+      name: 'サンプル市カードゲーム協会',
+      profileText: '健全なカードゲーム文化の発展とプレイヤー間の交流を目的としています。',
+      urls: [{ label: '大会詳細ページ', url: 'https://sample-cardgame.example.com/tournament3' }],
+    },
+    capacity: 64,
+    imageUrls: ['/images/card-game.jpg'],
+    isFeatured: false,
+  },
+  {
+    id: 'event-008-local-history-walk',
+    title: '古地図と歩く！サンプル市の歴史探訪ウォーキングツアー',
+    description: '地元の歴史研究家と一緒に、普段何気なく通り過ぎている街角に残る歴史の痕跡を巡ります。古地図を片手に、知られざるサンプル市の魅力に触れてみませんか？約3kmのコースです。',
+    type: {
+      mainCategory: '学習・講座',
+      tags: ['シニア向け', '初心者歓迎' /* '歴史好き'の代わり */, '雨天決行' /* 小雨の場合など */],
+      format: 'オフライン',
+      physicalSetting: '屋外',
+    },
+    requiresReservation: true,
+    fee: {
+      isFreeToJoin: false,
+      description: '参加費：500円（資料代・保険料として）',
+    },
+    location: {
+      address: '埼玉県サンプル市中央1-1-1 サンプル駅前広場',
+      venueName: 'サンプル駅前広場 時計台下 (集合場所)',
+      accessNotes: '歩きやすい靴でご参加ください。飲み物、帽子、雨具（必要な場合）は各自ご用意ください。',
+    },
+    schedule: {
+      startDateTime: '2025-06-21T13:00:00+09:00',
+      endDateTime: '2025-06-21T15:30:00+09:00',
+      notes: '小雨決行。荒天の場合は中止とし、当日午前9時に主催者SNSで告知します。',
+    },
+    organizer: {
+      name: 'サンプル市歴史散歩の会',
+      email: 'historywalk@sample-city-heritage.example.com',
+      profileText: 'サンプル市の歴史と文化を後世に伝えるため、様々な活動を行っています。',
+    },
+    capacity: 20,
+    imageUrls: ['/images/old-map.jpg'],
+    isFeatured: false,
+  },
+  {
+    id: 'event-009-community-garden',
+    title: 'みんなで育てる！コミュニティガーデン 春の植え付け体験',
+    description: '地域の共有スペース「わくわくファーム」で、夏野菜の苗を一緒に植え付けましょう！土に触れ、種から育てる楽しさを体験できます。収穫祭も予定！初心者、お子様連れ大歓迎。',
+    type: {
+      mainCategory: '地域活動・ボランティア',
+      tags: ['こども向け', '親子参加OK', '初心者歓迎', '持ち物不要' /* 農具など貸出ありの想定 */],
+      format: 'オフライン',
+      physicalSetting: '屋外',
+    },
+    requiresReservation: false, // 当日参加もOKだが、事前連絡推奨
+    fee: {
+      isFreeToJoin: true,
+      description: '参加無料！汚れても良い服装、帽子、軍手（あれば）をご持参ください。',
+    },
+    location: {
+      address: '埼玉県サンプル市畑中88 サンプルわくわくファーム',
+      venueName: 'サンプルわくわくファーム (現地集合)',
+      accessNotes: 'サンプルバス「畑中」バス停下車徒歩5分。駐車場は近隣に少数あり。',
+    },
+    schedule: {
+      startDateTime: '2025-06-07T10:00:00+09:00',
+      endDateTime: '2025-06-07T12:00:00+09:00',
+      notes: '小雨決行。中止の場合は当日朝SNSで連絡。収穫物は参加者で分配予定。',
+    },
+    organizer: {
+      name: 'わくわくファーム運営組合',
+      profileText: '食育とコミュニティ形成を目的とした市民農園です。',
+      urls: [{ label: 'ファームのブログ', url: 'https://wakuwakufarm.example.com' }],
+    },
+    imageUrls: ['/images/garden.jpg'],
+    isFeatured: true, // 注目イベント
+  },
+  {
+    id: 'event-010-repair-cafe',
+    title: 'こわしちゃった？直せるかも！リペア・カフェ＠サンプル',
+    description: '壊れた家電製品、おもちゃ、衣類などを持ち寄って、修理が得意なボランティアさんと一緒に修理に挑戦してみませんか？物を大切にする心と、修理の技術を楽しく学べます。相談無料。部品代実費の場合あり。',
+    type: {
+      mainCategory: '地域活動・ボランティア', // 「学習・講座」の側面も
+      tags: ['初心者歓迎' /* '誰でも歓迎'の代わり */], // 'エコ活動', 'スキル交換' のタグも良いですね
+      format: 'オフライン',
+      physicalSetting: '屋内',
+    },
+    requiresReservation: false, // 持ち込み相談ベース
+    fee: {
+      isFreeToJoin: true,
+      description: '相談・修理サポート無料（部品代が必要な場合は実費負担）',
+    },
+    location: {
+      address: '埼玉県サンプル市エコプラザ1階 交流スペース',
+      venueName: 'サンプル市エコプラザ 交流スペース',
+      accessNotes: '毎月第3日曜開催。持ち込み多数の場合はお待ちいただくことがあります。',
+    },
+    schedule: {
+      startDateTime: '2025-07-21T13:00:00+09:00', // 第3日曜と仮定
+      endDateTime: '2025-07-21T16:00:00+09:00',
+      notes: '修理できないものもありますのでご了承ください。まずはご相談ください。',
+    },
+    organizer: {
+      name: 'サンプル・リペア・ネットワーク',
+      email: 'repair-sample@example.com',
+      profileText: '「捨てる」から「活かす」へ。地域で修理の輪を広げるボランティアグループです。',
+    },
+    imageUrls: ['/images/repair.jpg'],
+    isFeatured: false,
+  }
 ];
 
 /**
