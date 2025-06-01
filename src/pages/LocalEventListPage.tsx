@@ -5,6 +5,10 @@ import { Header } from "../components/layout/Header";
 import { Footer } from "../components/layout/Footer";
 import { fakeFetchEvents } from "../mocks/fakeFetchEvents";
 import type { CommunityEvent } from "../types/CommunityEvent";
+import { FeaturedEventsCarousel } from "../components/FeaturedEventsCarousel";
+import { EventCardsSection } from "../components/EventCardsSection";
+import { HostEventPrompt } from "../components/prompt/HostEventPrompt";
+import { HelpEventPrompt } from "../components/prompt/HelpEventPrompt";
 
 
 const LocalEventListPage: React.FC = () => {
@@ -43,11 +47,17 @@ const LocalEventListPage: React.FC = () => {
   }
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-gray-100">
       <Header />
 
       <main className="grow">
-        {/* コンポーネント追加予定 */}
+        <FeaturedEventsCarousel events={events} />
+        <EventCardsSection title="イベント一覧" events={events} />
+
+        <div className="p-4 grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <HostEventPrompt />
+          <HelpEventPrompt />
+        </div>
       </main>
 
       <Footer />
