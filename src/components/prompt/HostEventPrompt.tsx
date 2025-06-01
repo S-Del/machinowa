@@ -1,16 +1,15 @@
-import React from 'react';
-import { Link, useParams} from 'react-router-dom';
+import React from "react";
+import { Link, useParams } from "react-router-dom";
 
 export const HostEventPrompt: React.FC = () => {
   const { regionId } = useParams<{ regionId: string }>();
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-lg text-center">
-      <h3 className="text-xl font-semibold mb-3">
-        あなたのイベントを掲載しませんか？
-      </h3>
+      <h3 className="text-xl font-semibold mb-3">あなたのイベントを掲載しませんか？</h3>
       <p className="text-gray-700 mb-5">
-        地域を盛り上げる素敵なイベント企画をお持ちのあなた！<br />
+        地域を盛り上げる素敵なイベント企画をお持ちのあなた！
+        <br />
         「街の輪」で告知して、たくさんの人に参加してもらいましょう。
       </p>
       <Link
@@ -35,7 +34,7 @@ export const HostEventPrompt: React.FC = () => {
           "transition-all",
           "duration-150",
           "ease-in-out",
-          "transform"
+          "transform",
         ].join(" ")}
       >
         イベントを掲載・開催する

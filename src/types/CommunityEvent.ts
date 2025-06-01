@@ -124,10 +124,7 @@ export type LabeledLink = {
 export type EventType = {
   readonly mainCategory: EventCategory;
   readonly tags: EventTag[];
-  readonly format:
-    | "オフライン"
-    | "オンライン"
-    | "ハイブリッド (オンライン参加可)";
+  readonly format: "オフライン" | "オンライン" | "ハイブリッド (オンライン参加可)";
 
   /**
    * 屋内外情報 (任意)

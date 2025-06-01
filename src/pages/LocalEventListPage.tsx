@@ -10,12 +10,11 @@ import { EventCardsSection } from "../components/EventCardsSection";
 import { HostEventPrompt } from "../components/prompt/HostEventPrompt";
 import { HelpEventPrompt } from "../components/prompt/HelpEventPrompt";
 
-
 const LocalEventListPage: React.FC = () => {
   const { regionId } = useParams<{ regionId: string }>();
   const [events, setEvents] = useState<CommunityEvent[]>([]);
-//const [isLoading, setIsLoading] = useState<boolean>(false);
-//const [error, setError] = useState<string | null>(null);
+  //const [isLoading, setIsLoading] = useState<boolean>(false);
+  //const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     (async () => {
@@ -63,7 +62,6 @@ const LocalEventListPage: React.FC = () => {
       <Footer />
     </div>
   );
-}
-
+};
 
 export default LocalEventListPage;

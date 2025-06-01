@@ -10,7 +10,10 @@ const App = () => {
       <Route path="/" element={<RegionSelectorTopPage />} />
 
       <Route path="/events/:regionId" element={<LocalEventListPage />} />
-      <Route path="/events/:regionId/opportunities" element={<div>お手伝い募集一覧ページ (仮)</div>} />
+      <Route
+        path="/events/:regionId/opportunities"
+        element={<div>お手伝い募集一覧ページ (仮)</div>}
+      />
       <Route path="/events/:regionId/new" element={<div>イベント開催ページ (仮)</div>} />
       <Route path="/events/filter" element={<div>イベント絞り込みページ (仮)</div>} />
 
