@@ -154,3 +154,23 @@ export const fakeFetchEvents = async (regionId: string): Promise<CommunityEvent[
 
   return mockEvents;
 }
+
+
+/**
+ * IDに基づいて単一のイベント情報を非同期で取得することを模倣する関数
+ */
+export const fakeFetchEventById = async (eventId: string): Promise<CommunityEvent | undefined> => {
+  console.debug(`イベント詳細の取得を開始 ID: ${eventId}`);
+
+  // ローディング表示の実装を行った場合のための遅延シミュレーション
+  await new Promise(resolve => setTimeout(resolve, 250));
+
+  const event = mockEvents.find(e => e.id === eventId);
+  if (event) {
+    console.debug(`Event found (ID: ${eventId}):`, event);
+  } else {
+    console.warn(`Event with ID: ${eventId} not found in mock data.`);
+  }
+
+  return event; // 見つからなければ undefined を返す
+};
