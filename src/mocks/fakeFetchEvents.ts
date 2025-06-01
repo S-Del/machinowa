@@ -103,7 +103,7 @@ const mockEvents: CommunityEvent[] = [{
     urls: [{ label: '連盟ウェブサイト', url: 'https://sample-city-sports.example.com/tennis' }],
   },
   capacity: 20,
-  imageUrls: ['/images/sample-tennis.jpg'], // 要生成
+  imageUrls: ['/images/tennis.jpg'],
   isFeatured: false,
 },
 {
@@ -136,7 +136,7 @@ const mockEvents: CommunityEvent[] = [{
     }],
   },
   // capacity はオンラインなので任意（設定する場合もある）
-  imageUrls: ['/images/sample-online-cooking.jpg'], // 要生成
+  imageUrls: ['/images/online-cooking.jpg'],
   isFeatured: false,
 }];
 
