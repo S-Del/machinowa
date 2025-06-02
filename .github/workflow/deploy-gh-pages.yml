@@ -1,0 +1,42 @@
+name: Deploy Machinowa to GitHub Pages
+on:
+  push:
+    branches:
+      - develop
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write # OIDCトークンを発行するため (actions/deploy-pages が利用)
+env:
+  VITE_APP_BASE: /machinowa/ # vite.config.tsのbaseと同じ値を設定
+jobs:
+  build-and-deploy:
+    name: Build and Deploy
+    runs-on: ubuntu-latest # 最新のUbuntu環境で実行
+    steps:
+      # ステップ1: リポジトリのコードをチェックアウト
+      - name: Checkout code
+        uses: actions/checkout@v4 # 最新のv4を使用
+      # ステップ2: Node.js環境をセットアップ
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # ユーザーさんのローカル環境に近いバージョン (例: '20.x')
+          cache: 'npm' # npmのキャッシュを有効化
+      # ステップ3: 依存関係をインストール
+      - name: Install dependencies
+        run: npm ci # package-lock.json に基づいてクリーンインストール
+      # ステップ4: プロジェクトをビルド
+      # vite.config.tsのbase設定がここで '/machinowa/' になる想定
+      - name: Build project
+        run: npm run build
+      # ステップ5: GitHub Pages用に成果物をアップロード
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3 # v3を使用
+        with:
+          path: ./dist # ビルド成果物があるdistディレクトリを指定
+      # ステップ6: GitHub Pagesにデプロイ
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4 # v4を使用
