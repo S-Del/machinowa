@@ -23,7 +23,6 @@ export type EventLocation = {
   readonly accessNotes?: string;
 };
 
-
 export type EventSchedule = {
   /**
    * 開始日時 (必須)
@@ -52,7 +51,6 @@ export type EventSchedule = {
   readonly notes?: string;
 };
 
-
 export type EventFee = {
   /**
    * イベント参加が無料かどうか。(必須)
@@ -75,41 +73,40 @@ export type EventFee = {
   readonly description: string;
 };
 
-
 /**
  * イベントの主題とや主たるジャンルを示すための文字列。
  *
  * ひとつだけ選択される。
  */
-type EventCategory = "祭り・催事"
-                   | "スポーツ・健康"
-                   | "学習・講座"
-                   | "アート・文化"
-                   | "地域活動・ボランティア"
-                   | "交流・ミートアップ"
-                   | "その他";
-
+type EventCategory =
+  | "祭り・催事"
+  | "スポーツ・健康"
+  | "学習・講座"
+  | "アート・文化"
+  | "地域活動・ボランティア"
+  | "交流・ミートアップ"
+  | "その他";
 
 /**
  * イベントの特性や補助的な情報を示すための文字列。
  *
  * 当てはまるものが複数選択される。
  */
-type EventTag = "初心者歓迎"
-              | "経験者向け"
-              | "こども向け"
-              | "親子参加OK"
-              | "託児サービスあり"
-              | "シニア向け"
-              | "ペット同伴可"
-              | "駐車場あり"
-              | "雨天決行"
-              | "雨天中止"
-              | "小雨決行"
-              | "持ち物不要"
-              | "飲食出店あり"
-              | "飲食物持ち込み禁止";
-
+type EventTag =
+  | "初心者歓迎"
+  | "経験者向け"
+  | "こども向け"
+  | "親子参加OK"
+  | "託児サービスあり"
+  | "シニア向け"
+  | "ペット同伴可"
+  | "駐車場あり"
+  | "雨天決行"
+  | "雨天中止"
+  | "小雨決行"
+  | "持ち物不要"
+  | "飲食出店あり"
+  | "飲食物持ち込み禁止";
 
 /**
  * ラベルと URL のペア
@@ -119,8 +116,7 @@ type EventTag = "初心者歓迎"
 export type LabeledLink = {
   readonly label?: string;
   readonly url: string;
-}
-
+};
 
 /**
  * イベントの性質を表す情報
@@ -141,8 +137,7 @@ export type EventType = {
    * オンライン開催の場合の URL 情報（任意）
    */
   readonly onlineUrl?: LabeledLink;
-}
-
+};
 
 export type EventOrganizer = {
   /**
@@ -188,7 +183,6 @@ export type EventOrganizer = {
   readonly urls?: LabeledLink[];
 };
 
-
 /**
  * 詳細なイベント情報の集約エンティティ
  */
@@ -204,4 +198,5 @@ export type CommunityEvent = {
   readonly organizer: EventOrganizer;
   readonly capacity?: number;
   readonly imageUrls?: string[];
+  readonly isFeatured?: boolean;
 };

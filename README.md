@@ -1,54 +1,108 @@
-# React + TypeScript + Vite
+# 街の輪 (プロトタイプ)
+<img src="./docs/images/thumb-for-readme.jpg" 
+     alt="地域イベント一覧ページの画像" 
+     style="max-width: 768px; max-height: 768px;"><br>
+「街の輪」は、地域住民が地元のイベント情報を手軽に発見し、
+コミュニティとの繋がりを深めることを目的としたウェブアプリケーションのプロトタイプです。  
+今回は、架空の「サンプル市」を対象地域として、イベント発見・参加・主催を支援する主要な画面と機能を実装しました。
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## セットアップ手順
+1. リポジトリをクローンします
+    ```console
+    git clone https://github.com/S-Del/machinowa.git
+    ```
+1. プロジェクトディレクトリに移動します
+    ```console
+    cd machinowa
+    ```
+1. 必要なパッケージをインストールします
+    ```console
+    npm install
+    ```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+## 動作確認方法
+### GitHubPages で確認する
+以下の URL にアクセスすることで、デプロイされたアプリケーションを直接確認できます。
+- **[街の輪 (プロトタイプ)](https://s-del.github.io/machinowa/)**
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### ローカル環境での確認
+1. [セットアップ手順](#セットアップ手順) に従い、プロジェクトの依存関係のインストールを完了してください。
+1. 以下のコマンドで開発用ローカルサーバーを起動します。
+    ```console
+    npm run dev
+    ```
+1.  コンソールに表示されたローカルアドレス（通常は `http://localhost:5173`）をブラウザで開きます。
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### 操作フロー例
+1. トップ（全国）ページが表示されます。「サンプル市のイベント一覧を見る」と書かれたリンク（またはボタン）をクリックします。
+1. 「サンプル市」の地域イベント一覧ページが表示されます。
+1. ページ上部の注目イベントカルーセルで、左右の矢印をクリックしてイベントを切り替えることができます。カルーセル内のイベント画像やタイトルをクリックすると、イベント詳細ページへ遷移します。
+    - モバイル端末の場合はスワイプでイベントを切り替えることが出来ます。
+1. 「イベント一覧」セクションでは、イベントカードが一覧表示されています。各カードをクリックすると、対応するイベントの詳細ページへ遷移します。
+1. イベント詳細ページでは、イベントの各種情報が確認できます。
+1. 地域イベント一覧ページにある「イベントを絞り込む・検索する」ボタンや、「イベントを開催する」「イベントを手伝う」リンクは、現在は「準備中」のメッセージが表示されるプレースホルダーページへ遷移します。
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 実装機能の説明
+### トップ (全国) ページ (`/`)
+アプリケーション全体の入り口となるページです。  
+最終的には全国の地域を選択できるようなポータルとなる構想を示しています。
+#### 現在の機能
+- 全国での注目イベント表示セクション (予定)
+- 地域選択セクション (予定)
+    - プロトタイプとして、「サンプル市」への「イベント一覧ページ」への導線を設置。
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+### 地域イベント一覧ページ (`/events/:region_id`)
+このプロトタイプの中核となるページです。  
+トップページで選択された地域のイベント一覧を表示します。
+#### 現在の機能
+- 注目イベントカルーセル
+    - 「注目フラグ」が設定されているイベントをカルーセルで大きく表示。
+    - 画像やタイトルが「イベント詳細ページ」へのリンクとなっている。
+- イベント絞り込みボタン
+    - 現在は「準備中」ページに遷移するのみ。
+    - 将来的に詳細な絞り込みや検索が必要になる事を想定して設置している。(日時を指定して絞り込みたいユーザー等)
+- イベント一覧
+    - カード形式でイベントを表示。
+    - 各カードが「イベント詳細ページ」へのリンクとなっている。
+- 「つながり」セクション
+    - 「イベントを開催する」「イベントを手伝う」リンクを設置。
+
+### イベント詳細ページ (`/event/:event_id`)
+単一のイベントの詳細な情報を表示するためのページです。
+#### 確認できる項目
+- イベント画像
+- イベントタイトル
+- イベント概要
+- 開催日時
+- 開催場所
+- オンライン開催の場合の URL
+- 参加料金
+- 予約要否
+- 定員
+- イベントのカテゴリやタグ
+- 主催者情報
+
+### プレースホルダページ群
+以下のページは将来的な構想としてルートが設定されており、
+現在は「準備中」などを表示する最小限の実装になっています。
+- イベント絞り込みページ (`/events/filter`)
+- イベント開催募集ページ (`/events/:region_id/new`)
+- イベント手伝い募集ページ (`/events/:region_id/opportunities`)
+
+
+## 使用技術・ライブラリ
+| 名称             | バージョン | 用途                       |
+| :--------------- | :--------- | :------------------------- |
+| TypeScript       | ~5.8.3     | 型安全な開発               |
+| ESLint           | 9.25.0     | 静的コード解析             |
+| Prettier         | 3.5.3      | コード自動整形             |
+| React            | 19.1.0     | UI 構築                    |
+| Vite             | 6.3.5      | 開発サーバー・ビルドツール |
+| React Router DOM | 7.6.1      | ページ遷移管理             |
+| Swiper           | 11.2.8     | カルーセルスライダー       |
+| Tailwind CSS     | 4.1.8      | スタイリング               |
+
+詳細は [package.json](./package.json) を参照してください。
