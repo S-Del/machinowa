@@ -39,7 +39,7 @@ const mockEvents: CommunityEvent[] = [
         },
       ],
     },
-    imageUrls: ["/images/festival.jpg"],
+    imageUrls: [`${import.meta.env.BASE_URL}images/festival.jpg`],
     isFeatured: true,
   },
   {
@@ -75,7 +75,7 @@ const mockEvents: CommunityEvent[] = [
         "地域に日本の伝統文化を広める活動をしています。初心者向けの体験教室を定期開催。",
     },
     capacity: 10,
-    imageUrls: ["/images/tea-ceremony.jpg"],
+    imageUrls: [`${import.meta.env.BASE_URL}images/tea-ceremony.jpg`],
     isFeatured: true,
   },
   {
@@ -111,7 +111,7 @@ const mockEvents: CommunityEvent[] = [
       urls: [{ label: "連盟ウェブサイト", url: "https://sample-city-sports.example.com/tennis" }],
     },
     capacity: 20,
-    imageUrls: ["/images/tennis.jpg"],
+    imageUrls: [`${import.meta.env.BASE_URL}images/tennis.jpg`],
     isFeatured: false,
   },
   {
@@ -149,7 +149,7 @@ const mockEvents: CommunityEvent[] = [
       ],
     },
     // capacity はオンラインなので任意（設定する場合もある）
-    imageUrls: ["/images/online-cooking.jpg"],
+    imageUrls: [`${import.meta.env.BASE_URL}images/online-cooking.jpg`],
     isFeatured: false,
   },
   {
@@ -184,7 +184,7 @@ const mockEvents: CommunityEvent[] = [
       urls: [{ label: '大会特設サイト', url: 'https://sample-city-sports.example.com/bouldering2025' }],
     },
     capacity: 100, // 参加者定員
-    imageUrls: ['/images/bouldering.jpg'],
+    imageUrls: [`${import.meta.env.BASE_URL}images/bouldering.jpg`],
     isFeatured: true, // 注目イベントにしてみましょう
   },
   {
@@ -218,7 +218,7 @@ const mockEvents: CommunityEvent[] = [
       profileText: 'サンプル川の環境保全と美化活動を行っている市民団体と市の共同プロジェクトです。',
     },
     // capacity は特に設定しないイメージ
-    imageUrls: ['/images/river.jpg'],
+    imageUrls: [`${import.meta.env.BASE_URL}images/river.jpg`],
     isFeatured: false,
   },
   {
@@ -252,7 +252,7 @@ const mockEvents: CommunityEvent[] = [
       urls: [{ label: '大会詳細ページ', url: 'https://sample-cardgame.example.com/tournament3' }],
     },
     capacity: 64,
-    imageUrls: ['/images/card-game.jpg'],
+    imageUrls: [`${import.meta.env.BASE_URL}images/card-game.jpg`],
     isFeatured: false,
   },
   {
@@ -286,7 +286,7 @@ const mockEvents: CommunityEvent[] = [
       profileText: 'サンプル市の歴史と文化を後世に伝えるため、様々な活動を行っています。',
     },
     capacity: 20,
-    imageUrls: ['/images/old-map.jpg'],
+    imageUrls: [`${import.meta.env.BASE_URL}images/old-map.jpg`],
     isFeatured: false,
   },
   {
@@ -319,7 +319,7 @@ const mockEvents: CommunityEvent[] = [
       profileText: '食育とコミュニティ形成を目的とした市民農園です。',
       urls: [{ label: 'ファームのブログ', url: 'https://wakuwakufarm.example.com' }],
     },
-    imageUrls: ['/images/garden.jpg'],
+    imageUrls: [`${import.meta.env.BASE_URL}images/garden.jpg`],
     isFeatured: true, // 注目イベント
   },
   {
@@ -352,7 +352,7 @@ const mockEvents: CommunityEvent[] = [
       email: 'repair-sample@example.com',
       profileText: '「捨てる」から「活かす」へ。地域で修理の輪を広げるボランティアグループです。',
     },
-    imageUrls: ['/images/repair.jpg'],
+    imageUrls: [`${import.meta.env.BASE_URL}images/repair.jpg`],
     isFeatured: false,
   }
 ];
